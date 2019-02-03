@@ -18,8 +18,8 @@ def main():
     df.rename(columns = {' arousal_mean':'arousal'}, inplace = True)
 
     # Mean Normalize values
-    df['valence'] = df['valence'] - 5
-    df['arousal'] = df['arousal'] - 5
+    df['valence'] -= - 5
+    df['arousal'] -= - 5
 
     def feeling_map(s):
         '''Refer: https://stackoverflow.com/questions/49586471/add-new-column-to-python-pandas-dataframe-based-on-multiple-conditions
