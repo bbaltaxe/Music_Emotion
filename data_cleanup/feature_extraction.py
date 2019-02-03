@@ -127,5 +127,5 @@ def get_data():
     df_3[df_3.columns] = df_3[df_3.columns].astype(int)
 
     df = pd.merge(pd.merge(df_2, df_3, on="song_id"), df_1, on="song_id")
+    df.drop(columns="song_id", inplace=True)
     return df
-get_data()
