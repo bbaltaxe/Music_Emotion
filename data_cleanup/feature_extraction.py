@@ -41,7 +41,6 @@ def get_genres(filename):
         X.loc[:, gen] = tempCol
     
     X.drop(columns=["title", "artist", "album", "Genre"], inplace=True)
-
     return X
 
 
@@ -122,10 +121,17 @@ def get_data():
     genre_data = []
     for file in genre_files:
         genre_data.append(get_genres(file))
-    df_3 = pd.concat(genre_data, sort=True ) 
+    df_3 = pd.concat(genre_data, sort=True )
     df_3.fillna(0, inplace=True)
+
     df_3[df_3.columns] = df_3[df_3.columns].astype(int)
 
-    df = pd.merge(pd.merge(df_2, df_3, on="song_id"), df_1, on="song_id")
+    
+    #df = pd.merge(pd.merge(df_2, df_3, on="song_id"), df_1, on="song_id")
+    df = pd.merge(df_3, df_1, on="song_id")
+    #import pdb; pdb.set_trace()
+    df = pd.merge(df, df_2, on="song_id")
     df.drop(columns="song_id", inplace=True)
     return df
+
+get_data()

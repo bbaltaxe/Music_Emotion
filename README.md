@@ -39,3 +39,11 @@ Evaluation metric:
 ------------------
 Accuracy and Recall via F1 score. 
 
+
+Plans:
+------
+	- Feature extraction on the given dataset
+	- Figure out a way to apply to extract these features on a completely new song
+	- Train a simple model using Logistic Regression to evaluate a baseline and also the accuracy should be more than 100/no.of feelings %
+	- Use a CNN/RNN/TCN model and learn and evaluate models.
+
